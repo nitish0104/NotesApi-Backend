@@ -1,6 +1,6 @@
 const express = require('express')
-const noteRouter = require('../src/routes/noteRoute')
-const userRouter = require('../src/routes/userRout')
+const noteRouter = require('./src/routes/noteRoute')
+const userRouter = require('./src/routes/userRout')
 const app = express()
 const dotenv = require('dotenv')
 dotenv.config()
