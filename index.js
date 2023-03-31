@@ -22,9 +22,7 @@ app.use('/note', noteRouter)
 app.get('/', (req, res) => {
 	res.send("notesApi")
 })
-app.get('/shradha', (req, res) => {
-	res.send("hello shradha nitish  dalvi")
-})
+
 mongoose.connect(process.env.MONGO_URL)
 	.then(() => {
 		app.listen(port, () => {
