@@ -10,11 +10,13 @@ const mongoose = require('mongoose')
 app.use(express.json())
 
 
-app.use(cors())
-// app.use((req, res, next) => {
-// 	console.log("http method" + req.method + "url" + req.url);
-// 	next()
-// })
+app.use(cors(
+	{
+		"origin": "*",
+		"optionsSuccessStatus": 204
+	}
+))
+
 app.use('/user', userRouter)
 app.use('/note', noteRouter)
 
