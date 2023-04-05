@@ -8,12 +8,9 @@ userRouter
 	.route("/signin")
 	.post(signin)
 
-// function signup(req, res) {
-// 	res.send("Signup")
-// }
-// function signin(req, res) {
-// 	res.send("signin")
-// }
+// Router.post("/signup", signup)
+// Router.post("/login", signin)
+
 
 module.exports = userRouter
 

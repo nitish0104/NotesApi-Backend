@@ -5,9 +5,9 @@ const dotenv = require('dotenv')
 dotenv.config()
 const signup = async (req, res) => {
 
-	const { usename, email, password } = req.body
+	const { username, email, password } = req.body
 	console.log(req.body);
-	console.log(usename);
+	console.log(username);
 	try {
 		//existing user
 		const existinguser = await userModel.findOne({ email: email })
@@ -18,7 +18,7 @@ const signup = async (req, res) => {
 		const hashpassword = await bcrypt.hash(password, 10)
 		//userCreation
 		const result = await userModel.create({
-			username: usename,
+			username: username,
 			email: email,
 			password: hashpassword
 		})
@@ -43,7 +43,7 @@ const signin = async (req, res) => {
 			return res.status(400).json({ message: "invalid credentials" })
 		}
 
-		const token = jwt.sign({ email: existinguser.email, id: existinguser._id }, SECRET_KEY)
+		const token = jwt.sign({ email: existinguser.email, id: existinguser._id }, process.env.SECRET_KEY)
 		res.status(201).json({ user: existinguser, token: token })
 
 
